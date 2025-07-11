@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EURIBOR Futures & Structures</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Same Nav Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="sofr.html">SOFR</a>
+    <a href="euribor.html">Euribor</a>
+    <a href="sonia.html">Sonia</a>
+    <a href="intermarket.html">Intermarket</a>
+    <a href="tools.html">Tools</a>
+  </nav>
+
+  <div class="container">
+    <h1>EURIBOR Curves</h1>
+    <p>Select a chart type from below to view live curve.</p>
+
+    <!-- Chart Type Buttons -->
+    <ul class="chart-types">
+      <li><button data-chart="outright">Outright</button></li>
+      <li><button data-chart="spread3m">3M Spread</button></li>
+      <li><button data-chart="spread6m">6M Spread</button></li>
+      <li><button data-chart="spread12m">12M Spread</button></li>
+      <li><button data-chart="fly3m">3M Fly</button></li>
+      <li><button data-chart="fly6m">6M Fly</button></li>
+      <li><button data-chart="fly12m">12M Fly</button></li>
+      <li><button data-chart="dfly3m">3M Double Fly</button></li>
+      <li><button data-chart="dfly6m">6M Double Fly</button></li>
+      <li><button data-chart="dfly12m">12M Double Fly</button></li>
+    </ul>
+
+    <!-- Chart Canvas -->
+    <canvas id="euriborChart" width="1500" height="600"></canvas>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Euribor Script -->
+  <script src="js/euribor.js"></script>
+</body>
+</html>

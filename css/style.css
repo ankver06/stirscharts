@@ -1,0 +1,214 @@
+/* === Base === */
+body {
+  min-height: 100vh;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+h1 {
+  margin-top: 0;
+  font-size: 2em;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 1.5em;
+}
+
+h3 {
+  margin-top: 30px;
+  font-size: 1.2em;
+}
+
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Navigation === */
+nav {
+  background: #003366;
+  padding: 10px 20px;
+}
+
+nav a {
+  color: #ffffff;
+  margin-right: 20px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background: #0055a5;
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+/* === Chart container === */
+canvas {
+  display: block;
+  max-width: 100%;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+/* === Container === */
+.container {
+  width: 90%;
+  max-width: 1700px;
+  margin: 20px auto;    /* smaller margin top/bottom */
+  background: #ffffff;
+  padding: 30px;   /* less vertical padding */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+
+
+ul.markets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+ul.markets li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ul.markets li a {
+  display: block;
+  width: 140px; /* ✅ NEW! */
+  padding: 20px;
+  background: linear-gradient(145deg, #e6f0f8, #ffffff);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+ul.markets li:hover {
+  transform: translateY(-5px);
+}
+
+ul.markets li a:hover {
+  background: linear-gradient(145deg, #d2e6f7, #f9fbfc);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  color: #002244;
+}
+
+
+ul.info-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 per row */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+ul.info-tiles li {
+  padding: 25px;
+  background: #f7f9fb; /* subtle light gray-blue */
+  border-radius: 12px;
+  text-align: left;  /* left-align for text blocks */
+  color: #003366;    /* same deep blue as nav */
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: background 0.3s, box-shadow 0.2s, color 0.2s;
+}
+
+ul.info-tiles li:hover {
+  background: #e6f0f8; /* slightly darker tint on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #001f33; /* slightly deeper blue on hover */
+}
+
+
+.note {
+  font-size: 14px;      /* your size */
+  color: #555;          /* lighter gray tone */
+  font-style: italic;   /* italic style */
+  font-weight: 400;     /* lighter weight */
+  margin-top: 20px;     /* optional space above */
+}
+
+
+
+
+ul.chart-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul.chart-types li button {
+  width: 100%;
+  padding: 12px 20px;
+  background: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+ul.chart-types li button:hover {
+  background: #005599;
+}
+
+footer {
+  text-align: center;
+  margin: 20px 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+
+#chartTitle {
+  text-align: center;
+  color: #007acc; /* or your blue */
+  text-decoration: underline;
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+

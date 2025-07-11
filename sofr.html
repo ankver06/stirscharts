@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SOFR Futures & Structures</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="sofr.html">SOFR</a>
+    <a href="euribor.html">Euribor</a>
+    <a href="sonia.html">Sonia</a>
+    <a href="intermarket.html">Intermarket</a>
+    <a href="economiccalender.html">Economic Calender</a>
+  </nav>
+
+  <div class="container">
+    <h1>SOFR Curves</h1>
+    <p>Select a chart type below to view live data.</p>
+
+    <!-- Chart Type Buttons -->
+    <ul class="chart-types">
+      <li><button data-chart="outright">Outright</button></li>
+      <li><button data-chart="spread3m">3M Spread</button></li>
+      <li><button data-chart="spread6m">6M Spread</button></li>
+      <li><button data-chart="spread12m">12M Spread</button></li>
+      <li><button data-chart="fly3m">3M Fly</button></li>
+      <li><button data-chart="fly6m">6M Fly</button></li>
+      <li><button data-chart="fly12m">12M Fly</button></li>
+      <li><button data-chart="dfly3m">3M Double Fly</button></li>
+      <li><button data-chart="dfly6m">6M Double Fly</button></li>
+      <li><button data-chart="dfly12m">12M Double Fly</button></li>
+    </ul>
+
+    <!-- ✅ This is your dynamic chart title -->
+    <h2 id="chartTitle"></h2>
+
+    <!-- Chart Canvas -->
+    <canvas id="sofrChart" width="1500" height="600"></canvas>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Your custom script -->
+  <script src="js/sofr.js"></script>
+</body>
+</html>
