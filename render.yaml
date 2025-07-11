@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: convert-excel-to-json
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn convert:app"
+    plan: free
