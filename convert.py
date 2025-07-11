@@ -1,5 +1,8 @@
+from flask import Flask, jsonify
 import pandas as pd
 import os
+
+app = Flask(__name__)
 
 # === CONFIG ===
 configs = [
@@ -20,25 +23,31 @@ sheets = [
     "3M Double Fly",
     "6M Double Fly",
     "12M Double Fly"
-
 ]
 
-# === MAIN LOOP ===
-for config in configs:
-    excel_file = config["excel_file"]
-    output_dir = config["output_dir"]
+@app.route("/convert", methods=["GET"])
+def convert_files():
+    logs = []
 
-    os.makedirs(output_dir, exist_ok=True)
+    for config in configs:
+        excel_file = config["excel_file"]
+        output_dir = config["output_dir"]
 
-    print(f"\n📂 Converting {excel_file} -> {output_dir}")
+        os.makedirs(output_dir, exist_ok=True)
 
-    for sheet in sheets:
-        try:
-            df = pd.read_excel(excel_file, sheet_name=sheet)
-            output_file = f"{output_dir}/{sheet.replace(' ', '_').lower()}.json"
-            df.to_json(output_file, orient="records")
-            print(f"✅ Converted: {sheet} -> {output_file}")
-        except Exception as e:
-            print(f"❌ Error converting {sheet} in {excel_file}: {e}")
+        logs.append(f"📂 Converting {excel_file} -> {output_dir}")
 
-print("\n🎉 All done! Your JSON files are in their respective folders.")
+        for sheet in sheets:
+            try:
+                df = pd.read_excel(excel_file, sheet_name=sheet)
+                output_file = f"{output_dir}/{sheet.replace(' ', '_').lower()}.json"
+                df.to_json(output_file, orient="records")
+                logs.append(f"✅ Converted: {sheet} -> {output_file}")
+            except Exception as e:
+                logs.append(f"❌ Error converting {sheet} in {excel_file}: {e}")
+
+    logs.append("🎉 All done! Your JSON files are in their respective folders.")
+    return jsonify({"logs": logs})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)
